@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "872974730213",
+    "project_id": "whatsapp-clone-fe43c",
+    "storage_bucket": "whatsapp-clone-fe43c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872974730213:android:8aa51dcf5c2f2a4aa3e50c",
+        "android_client_info": {
+          "package_name": "com.example.whatsapp_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872974730213-kedb76cg1i9560fqv12q0aodlb7sjors.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfkDWQR2kHkdtQ9TpcXiytafYyk37hjGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872974730213-kedb76cg1i9560fqv12q0aodlb7sjors.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
