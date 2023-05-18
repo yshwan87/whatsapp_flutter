@@ -8,6 +8,7 @@ import 'package:whatsapp_flutter/common/repositories/common_firebase_storage_rep
 import 'package:whatsapp_flutter/common/utils/utils.dart';
 import 'package:whatsapp_flutter/features/auth/screens/otp_screen.dart';
 import 'package:whatsapp_flutter/models/user_model.dart';
+import 'package:whatsapp_flutter/screens/mobile_layout_screen.dart';
 
 import '../screens/user_information_screen.dart';
 
@@ -25,6 +26,16 @@ class AuthRepository {
     required this.auth,
     required this.firestore,
   });
+
+  Future<UserModel?> getCurrentUserData() async {
+    var userData = await firestore.collection('users').doc(auth.currentUser?.uid).get();
+
+    UserModel? user;
+    if (userData.data() != null) {
+      user = UserModel.fromMap(userData.data()!);
+    }
+    return user;
+  }
 
   void signInWithPhone(BuildContext context, String phoneNumber) async {
     try {
@@ -100,13 +111,14 @@ class AuthRepository {
 
       await firestore.collection('users').doc(uid).set(user.toMap());
 
-      //   Navigator.pushAndRemoveUntil(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => const MobileLayoutScreen(),
-      //     ),
-      //     (route) => false,
-      //   );
+      // ignore: use_build_context_synchronously
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MobileLayoutScreen(),
+        ),
+        (route) => false,
+      );
     } catch (e) {
       showSnackBar(context: context, content: e.toString());
     }
