@@ -5,7 +5,7 @@ import 'package:whatsapp_flutter/common/utils/colors.dart';
 import 'package:whatsapp_flutter/common/widgets/error.dart';
 import 'package:whatsapp_flutter/common/widgets/loader.dart';
 import 'package:whatsapp_flutter/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp_flutter/features/landings/screens/landing_screen.dart';
+import 'package:whatsapp_flutter/features/landing/screens/landing_screen.dart';
 import 'package:whatsapp_flutter/firebase_options.dart';
 import 'package:whatsapp_flutter/router.dart';
 import 'package:whatsapp_flutter/screens/mobile_layout_screen.dart';
