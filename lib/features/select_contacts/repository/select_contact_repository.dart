@@ -50,10 +50,11 @@ class SelectContactRepository {
             .replaceAll('-', '');
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
-          Navigator.pushNamed(
-            context,
-            MobileChatScreen.routeName,
-          );
+          // ignore: use_build_context_synchronously
+          Navigator.pushNamed(context, MobileChatScreen.routeName, arguments: {
+            'name': userData.name,
+            'uid': userData.uid,
+          });
         }
       }
 
