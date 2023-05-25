@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_flutter/common/utils/colors.dart';
+import 'package:whatsapp_flutter/features/chat/controller/chat_contoller.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
+  final String recieverUserId;
   const BottomChatField({
     super.key,
+    required this.recieverUserId,
   });
 
   @override
@@ -15,6 +18,25 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
   bool isShowSendButton = false;
   final TextEditingController _messageController = TextEditingController();
   FocusNode focusNode = FocusNode();
+
+  void sendTextMessage() async {
+    if (isShowSendButton) {
+      ref.read(chatControllerProvider).sendTextMessage(
+            context,
+            _messageController.text.trim(),
+            widget.recieverUserId,
+          );
+      setState(() {
+        _messageController.text = '';
+      });
+    } else {}
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _messageController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,11 +132,11 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
             backgroundColor: const Color(0xFF128C7E),
             radius: 25,
             child: GestureDetector(
+              onTap: sendTextMessage,
               child: Icon(
                 isShowSendButton ? Icons.send : Icons.mic,
                 color: Colors.white,
               ),
-              onTap: () {},
             ),
           ),
         )
