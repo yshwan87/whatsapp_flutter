@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_flutter/common/utils/colors.dart';
 import 'package:whatsapp_flutter/widgets/chat_list.dart';
 
-import 'package:whatsapp_flutter/widgets/contacts_list.dart';
+import 'package:whatsapp_flutter/features/chat/widgets/contacts_list.dart';
 import 'package:whatsapp_flutter/widgets/web_profile_bar.dart';
 import 'package:whatsapp_flutter/widgets/web_search_bar.dart';
 
