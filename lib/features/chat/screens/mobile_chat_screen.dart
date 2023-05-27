@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_flutter/common/utils/colors.dart';
 import 'package:whatsapp_flutter/common/widgets/loader.dart';
 import 'package:whatsapp_flutter/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp_flutter/widgets/chat_list.dart';
+import 'package:whatsapp_flutter/features/chat/widgets/chat_list.dart';
 
 class MobileChatScreen extends ConsumerWidget {
   static const String routeName = '/mobile-chat-screen';
@@ -63,8 +63,8 @@ class MobileChatScreen extends ConsumerWidget {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: ChatList(),
+          Expanded(
+            child: ChatList(recieverUserId: uid),
           ),
           BottomChatField(
             recieverUserId: uid,

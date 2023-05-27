@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_flutter/features/auth/controller/auth_controller.dart';
 import 'package:whatsapp_flutter/models/chat_contact.dart';
+import 'package:whatsapp_flutter/models/message.dart';
 
 import '../repositories/chat_repository.dart';
 
@@ -38,5 +39,9 @@ class ChatController {
             senderUser: value!,
           ),
         );
+  }
+
+  Stream<List<Message>> chatStream(String recieverUserId) {
+    return chatRepository.getChatStream(recieverUserId);
   }
 }
