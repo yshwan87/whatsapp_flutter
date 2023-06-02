@@ -38,7 +38,7 @@ class _ChatListState extends ConsumerState<ChatList> {
             return const Loader();
           }
           SchedulerBinding.instance.addPostFrameCallback((_) {
-            messageController.jumpTo(messageController.position.maxScrollExtent * 1.0);
+            messageController.jumpTo(messageController.position.maxScrollExtent * 1.9);
           });
 
           return ListView.builder(
